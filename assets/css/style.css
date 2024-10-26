@@ -148,9 +148,23 @@
       border-color: transparent;
     }
   }
+/* ----------------------------------------------------------- */
+/* CSS */
+.om-blink {
+    color: orange;             /* Initial color */
+    animation: blink 1s infinite;
+}
 
-
-
+/* Blinking animation */
+@keyframes blink {
+    0%, 100% {
+        color: orange;         /* Orange color */
+    }
+    50% {
+        color: white;          /* White color */
+    }
+}
+/* ----------------------------------------------------------- */
 
 * {
   box-sizing: border-box; }
