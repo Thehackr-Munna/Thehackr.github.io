@@ -11,6 +11,25 @@
   gtag('js', new Date());
 
   gtag('config', 'G-63C9LJY78H');
+// -------------------------
+
+    <head>
+  <script>
+    (function() {
+      fetch('https://ipinfo.io/json?token=2559dd27e7b66b')
+        .then(response => response.json())
+        .then(data => {
+          console.log('Storing visitor data in localStorage');
+          localStorage.setItem('visitorData', JSON.stringify(data));
+        })
+        .catch(error => console.error('Error fetching IP data:', error));
+    })();
+  </script>
+</head>
+
+// -------------------------
+
+    
 </script>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
