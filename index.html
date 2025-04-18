@@ -1291,7 +1291,7 @@
                                     </div> -->
 <div class="col-lg-12">
     <div class="form-group">
-        <label for="subject" style="font-weight: bold; color: #0d6efd;">What can we help you with?</label>
+        <label for="subject" style="font-weight: bold; color: #0d6efd; margin-bottom: 8px; display: block;">What can we help you with?</label>
         <select class="form-control" id="subject" name="subject" required 
                 style="
                     padding: 12px 20px;
@@ -1304,8 +1304,14 @@
                     background-image: none;
                     appearance: none;
                     background-color: white;
-                ">
-            <option value="" disabled selected style="color: #6c757d;">🔍 Select a service...</option>
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230d6efd' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    background-position: right 1rem center;
+                    background-size: 16px 12px;
+                "
+                onchange="this.style.color='#212529'; this.style.fontWeight='normal';">
+            
+            <option value="" disabled selected style="color: #6c757d; font-style: italic;">🔍 Select a service...</option>
             
             <!-- Development Services -->
             <optgroup label="💻 Development Services" style="font-weight: bold; font-style: normal; padding: 8px 0; background-color: #e7f2ff;">
