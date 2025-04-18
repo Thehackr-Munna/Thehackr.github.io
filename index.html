@@ -1265,14 +1265,14 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-name">Your Name</label>
-                                            <input class="form-control form-control-lg" name="name" id="contact-name" type="text" placeholder="Who do I have the pleasure of speaking to?" required>
+                                            <input class="form-control form-control-lg" name="name" id="contact-name" type="text" placeholder="Who’s this awesome person?" required>
                                         </div>
                                     </div>
                                 
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-phone">Phone Number</label>
-                                            <input class="form-control" name="phone" id="contact-phone" type="text" placeholder="" required>
+                                            <input class="form-control" name="phone" id="contact-phone" type="text" placeholder="Can we get your #? 👉👈 🥺" required>
                                         </div>
                                     </div>
                                 
@@ -1286,46 +1286,57 @@
 <!--                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="subject">Subject</label>
-                                            <input class="form-control form-control-sm" id="subject" name="subject" type="text" placeholder="Tell me about your idea, bug, or app you'd like tested." required>
+                                            <input class="form-control form-control-sm" id="subject" name="subject" type="text" placeholder="" required>
                                         </div>
                                     </div> -->
-                                    
-                                    <div class="col-lg-12">
+<div class="col-lg-12">
     <div class="form-group">
-        <label for="subject">Subject</label>
-        <select class="form-control form-control-sm" id="subject" name="subject" required>
-            <option value="" disabled selected>Select a service</option>
-
+        <label for="subject" style="font-weight: bold; color: #0d6efd;">What can we help you with?</label>
+        <select class="form-control" id="subject" name="subject" required 
+                style="
+                    padding: 12px 20px;
+                    font-size: 1.1rem;
+                    border-radius: 8px;
+                    border: 2px solid #ced4da;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                    transition: all 0.3s;
+                    cursor: pointer;
+                    background-image: none;
+                    appearance: none;
+                    background-color: white;
+                ">
+            <option value="" disabled selected style="color: #6c757d;">🔍 Select a service...</option>
+            
             <!-- Development Services -->
-            <option value="web-dev">🧑‍💻 Web Development</option>
-            <option value="mobile-dev">📱 Mobile App Development</option>
-            <option value="fullstack-dev">🌐 Full-Stack Development</option>
-            <option value="uiux-design">🎨 UI/UX Design</option>
-
+            <optgroup label="💻 Development Services" style="font-weight: bold; font-style: normal; padding: 8px 0; background-color: #e7f2ff;">
+                <option value="web-dev" style="padding: 10px 15px; color: #212529;">🌐 Web Development</option>
+                <option value="mobile-dev" style="padding: 10px 15px; color: #212529;">📱 Mobile App Development</option>
+                <option value="fullstack-dev" style="padding: 10px 15px; color: #212529;">🔄 Full-Stack Development</option>
+                <option value="uiux-design" style="padding: 10px 15px; color: #212529;">🎨 UI/UX Design</option>
+            </optgroup>
+            
             <!-- Pentesting & Security -->
-            <option value="web-pentesting">🛡️ Web Application Pentesting</option>
-            <option value="mobile-pentesting">🔐 Mobile App Pentesting</option>
-            <option value="api-security">🔎 API Security Testing</option>
-            <option value="network-pentesting">🖧 Network Pentesting</option>
-            <option value="internal-network-pt">🏢 Internal Network Pentesting</option>
-            <option value="external-network-pt">🌍 External Network Pentesting</option>
-            <option value="phishing-simulation">🎯 Phishing Simulation</option>
-            <option value="source-review">🧠 Secure Code Review</option>
-            <option value="vapt">🚨 VAPT (Vulnerability Assessment & Penetration Testing)</option>
-            <option value="red-teaming">👻 Red Team Simulation</option>
-            <option value="consultation">💬 Security Consultation / Audit</option>
-
+            <optgroup label="🛡️ Security Services" style="font-weight: bold; font-style: normal; padding: 8px 0; background-color: #ffebee;">
+                <option value="web-pentesting" style="padding: 10px 15px; color: #212529;">🕸️ Web App Pentesting</option>
+                <option value="mobile-pentesting" style="padding: 10px 15px; color: #212529;">📲 Mobile Pentesting</option>
+                <option value="api-security" style="padding: 10px 15px; color: #212529;">🔗 API Security Testing</option>
+                <option value="internal-network-pt" style="padding: 10px 15px; color: #212529;">🏢 Internal Network Pentesting</option>
+                <option value="external-network-pt" style="padding: 10px 15px; color: #212529;">🌐 External Network Pentesting</option>
+                <option value="phishing-simulation" style="padding: 10px 15px; color: #212529;">🎣 Phishing Simulation</option>
+                <option value="source-review" style="padding: 10px 15px; color: #212529;">✍️ Secure Code Review</option>
+                <option value="vapt" style="padding: 10px 15px; color: #212529;">🚨 VAPT</option>
+                <option value="consultation" style="padding: 10px 15px; color: #212529;">💬 Security Consultation</option>
+            </optgroup>
+            
             <!-- Other -->
-            <option value="other">❓ Something Else</option>
+            <option value="other" style="padding: 10px 15px; background-color: #fff8e1; color: #212529;">❓ Something Else (Tell us more)</option>
         </select>
     </div>
 </div>
-
-                                
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-message">Your Message</label>
-                                            <textarea name="message" id="contact-message" cols="30" rows="10" placeholder="Message Box" required></textarea>
+                                            <textarea name="message" id="contact-message" cols="30" rows="10" placeholder="Tell me about your idea, bug, or app you'd like tested." required></textarea>
                                         </div>
                                     </div>
                                 
