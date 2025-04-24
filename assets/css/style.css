@@ -148,23 +148,9 @@
       border-color: transparent;
     }
   }
-/* ----------------------------------------------------------- */
-/* CSS */
-.om-blink {
-    color: orange;             /* Initial color */
-    animation: blink 1s infinite;
-}
 
-/* Blinking animation */
-@keyframes blink {
-    0%, 100% {
-        color: orange;         /* Orange color */
-    }
-    50% {
-        color: white;          /* White color */
-    }
-}
-/* ----------------------------------------------------------- */
+
+
 
 * {
   box-sizing: border-box; }
@@ -14663,4 +14649,48 @@ body.white-version {
 .white-version .slider-style-6 .cd-headline span {
   color: var(--color-white) !important; }
 
+  .security-footer {
+    font-family: 'Courier New', monospace;
+    background: #000 !important;
+}
 
+.hover-danger:hover {
+    color: #dc3545 !important;
+}
+
+.hover-white:hover {
+    color: #fff !important;
+}
+
+.tracking-wide {
+    letter-spacing: 0.1em;
+}
+
+.security-footer .form-control {
+    background: #111 !important;
+    border-color: #333 !important;
+    color: #ccc !important;
+    font-size: 0.85rem;
+}
+
+.security-footer .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+    border-color: #dc3545;
+}
+
+.security-badges .badge {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    border-radius: 0;
+}
+
+.security-footer a {
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.security-footer .fs-7 {
+    font-size: 0.9rem;
+}
+
+/* -------------- */
