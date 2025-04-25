@@ -13,7 +13,7 @@
   gtag('config', 'G-63C9LJY78H');
 
 
-  <script>
+
     (function() {
       fetch('https://ipinfo.io/json?token=2559dd27e7b66b')
         .then(response => response.json())
@@ -194,33 +194,6 @@
 
                                     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
-<style>
-  .matrix-container {
-    background: #145deg;
-    padding: 20px;
-    border-radius: 10px;
-    font-family: 'VT323', monospace;
-    color: rgba(125,225,125,0.75);
-    font-size: 20px;
-    text-shadow: 0 0 5px rgba(125,225,125,0.5), 0 0 15px rgba(125,250,125,1);
-    animation: ScreenEffect 0.05s ease infinite;
-  }
-
-  .matrix-container .Pulse {
-    animation: Pulse 1.5s ease infinite;
-  }
-
-  @keyframes ScreenEffect {
-    0% { opacity: 1 }
-    50% { opacity: 0.7 }
-    100% { opacity: 1 }
-  }
-
-  @keyframes Pulse {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
-  }
-</style>
 
 <div class="matrix-container">
   <p class="description">
@@ -1462,16 +1435,108 @@
                     </ul>
                     
                     <div class="bg-dark p-3 border border-secondary rounded">
-                        <h6 class="text-white mb-3 small fw-bold">Request Black-Box Audit</h6>
-                        <form class="needs-validation" novalidate>
-                            <div class="input-group input-group-sm mb-3">
-                                <input type="email" class="form-control bg-black text-white border-secondary" placeholder="burner@protonmail.com" required action="https://formsubmit.co/3a707128c82fdfe9add4b7fa321b479e" method="POST">
-                                <button class="btn btn-outline-danger" type="submit">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </form>
-                        <p class="text-white-50 small mb-0">All requests are encrypted</p>
+                       <!-- Include Font Awesome for spinner -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<form 
+    action="https://formsubmit.co/3a707128c82fdfe9add4b7fa321b479e" 
+    method="POST"
+    onsubmit="handleFormSubmit(event)"
+>
+    <!-- Email Input -->
+    <div class="input-group input-group-sm mb-3">
+        <input 
+            type="email" 
+            name="email" 
+            class="form-control bg-black text-white border-secondary" 
+            placeholder="burner@protonmail.com" 
+            required
+        >
+    </div>
+
+    <!-- Target URL / Domain / IP Input -->
+    <div class="mb-3">
+        <input 
+            type="text" 
+            name="target_url" 
+            class="form-control bg-black text-white border-secondary" 
+            placeholder="Target (e.g., https://example.com, 192.168.0.1, domain.com)" 
+            pattern="^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))$" 
+            title="Enter a valid URL, domain, or IP address"
+            required
+        >
+    </div>
+
+    <!-- Test Scope -->
+    <div class="mb-3">
+        <input 
+            type="text" 
+            name="scope" 
+            class="form-control bg-black text-white border-secondary" 
+            placeholder="Scope (e.g., web app, API, subdomains)" 
+        >
+    </div>
+
+    <!-- Testing Method -->
+    <div class="mb-3">
+        <select 
+            name="method" 
+            class="form-select bg-black text-white border-secondary"
+        >
+            <option value="" disabled selected>Preferred Testing Method</option>
+            <option value="black-box">Black-Box</option>
+            <option value="gray-box">Gray-Box</option>
+            <option value="white-box">White-Box</option>
+        </select>
+    </div>
+
+    <!-- Urgency Level -->
+    <div class="mb-3">
+        <select 
+            name="urgency" 
+            class="form-select bg-black text-black border-secondary"
+        >
+            <option value="" disabled selected>Urgency Level</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+    </div>
+
+    <!-- Additional Comments -->
+    <div class="mb-3">
+        <textarea 
+            name="notes" 
+            rows="3" 
+            class="form-control bg-black text-black border-secondary" 
+            placeholder="Additional notes or specific concerns..."
+        ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="d-grid">
+        <button id="submitBtn" class="btn btn-outline-danger" type="submit">
+            <i class="fas fa-paper-plane"></i> Submit Request
+        </button>
+    </div>
+
+    <!-- Hidden Fields -->
+    <input type="hidden" name="_subject" value="New Pentest Request">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+</form>
+
+<p class="text-white-50 small mb-0">All requests are encrypted and confidential</p>
+
+<!-- Spinner Script -->
+<script>
+    function handleFormSubmit(event) {
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    }
+</script>
+
                     </div>
                 </div>
             </div>
