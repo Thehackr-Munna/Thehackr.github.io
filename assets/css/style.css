@@ -14694,3 +14694,72 @@ body.white-version {
 }
 
 /* -------------- */
+
+.matrix-container {
+  background: linear-gradient(145deg, #212428fc, #212428fc);
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'VT323', monospace;
+  color: rgba(125, 225, 125, 0.75);
+  font-size: 20px;
+  text-shadow: 0 0 5px rgba(125, 225, 125, 0.5), 0 0 15px rgba(125, 250, 125, 1);
+  animation: ScreenEffect 0.07s ease infinite;
+}
+
+.matrix-container .Pulse {
+  animation: Pulse 1.5s ease infinite;
+}
+
+@keyframes ScreenEffect {
+  0% { opacity: 1 }
+  50% { opacity: 0.7 }
+  100% { opacity: 1 }
+}
+
+@keyframes Pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes glitch-anim {
+  0% { opacity: 0; transform: translate(0); }
+  2% { opacity: 0.1; transform: translate(-5px, 5px); }
+  4% { opacity: 0.2; transform: translate(5px, -5px); }
+  6% { opacity: 0; transform: translate(0); }
+  100% { opacity: 0; transform: translate(0); }
+}
+
+.contact-about-area a:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+.social-icone a:hover i {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 65, 0.8)) !important;
+}
+
+#matrix-logo {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.blink {
+  animation: blink-animation 1.5s steps(2, start) infinite;
+}
+@keyframes blink-animation {
+  to { visibility: hidden; }
+}
+.form-control:focus, .form-select:focus {
+  border-color: #00ff41;
+  box-shadow: 0 0 0 0.25rem rgba(0, 255, 65, 0.25);
+}
+.btn-outline-success:hover {
+  background-color: #00ff41;
+  color: #000 !important;
+}
