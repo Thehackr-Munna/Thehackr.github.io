@@ -12947,7 +12947,7 @@ div#featured-project-carousel {
 
 .backto-top > div {
   position: fixed;
-  bottom: 50px;
+  bottom: 100px;
   right: 30px;
   cursor: pointer;
   z-index: 999;
