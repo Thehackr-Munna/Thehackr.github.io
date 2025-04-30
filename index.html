@@ -277,13 +277,13 @@
                                     <i data-feather="menu"></i>
                                 </div>
                                 <div class="content">
-                                    <h4 class="title"><a href="https://thehackr.netlify.app/#contacts">Penetration Testing</a></h4>
+                                    <h4 class="title"><a href="/Service/Penetration Testing.html">Penetration Testing</a></h4>
                                     <p class="description">Our penetration testing services leverage advanced Vulnerability Assessment and Penetration Testing (VAPT) methodologies to identify and eliminate vulnerabilities. We specialize in ethical hacking, utilizing extensive hands-on experience to safeguard your digital assets from modern security threats.</p>
 
-                                    <a class="read-more-button" href="https://thehackr.netlify.app/#contacts"><i class="feather-arrow-right"></i></a>
+                                    <a class="read-more-button" href="/Service/Penetration Testing.html"><i class="feather-arrow-right"></i></a>
                                 </div>
                             </div>
-                            <a class="over-link" href="https://thehackr.netlify.app/#contacts"></a>
+                            <a class="over-link" href="/Service/Penetration Testing.html"></a>
                         </div>
                     </div>
                     <!-- End SIngle Service -->
@@ -1396,7 +1396,7 @@
                 <div class="col-lg-2 col-md-6">
                     <h6 class="text-uppercase text-white-50 mb-4 small fw-bold tracking-wide">Penetration Services</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-3"><a href="#" class="text-secondary hover-white d-block py-1">Web App Pentesting</a></li>
+                        <li class="mb-3"><a href="/Service/Webpentest.html" class="text-secondary hover-white d-block py-1">Web App Pentesting</a></li>
                         <li class="mb-3"><a href="#" class="text-secondary hover-white d-block py-1">Network Exploitation</a></li>
                         <li class="mb-3"><a href="#" class="text-secondary hover-white d-block py-1">Mobile Security</a></li>
                         <li class="mb-3"><a href="#" class="text-secondary hover-white d-block py-1">Cloud Hacking</a></li>
@@ -1569,6 +1569,932 @@
     <script src="assets/js/vendor/particles.js"></script>
     <!-- main JS -->
     <script src="assets/js/main.js"></script>
+    <div class="security-chatbot-wrapper">
+        <!-- Chat toggle button -->
+        <button id="security-chatbot-toggle" class="security-chatbot-btn btn btn-danger rounded-circle shadow-lg">
+            <i class="fas fa-comment-alt"></i>
+            <span class="security-chatbot-badge"></span>
+        </button>
+    
+        <!-- Chat container -->
+        <div id="security-chatbot-container" class="security-chatbot-container">
+            <!-- Chat header -->
+            <div class="security-chatbot-header">
+                <div class="d-flex align-items-center">
+                    <img src="assets/images/icons/logoo.png" alt="SARSolutionz" class="security-chatbot-logo">
+                    <div>
+                        <h6 class="security-chatbot-title">SARSolutionz Security Bot</h6>
+                        <small class="security-chatbot-subtitle">Typically replies in 5 minutes</small>
+                    </div>
+                </div>
+                <div class="security-chatbot-actions">
+                    <button class="security-chatbot-minimize"><i class="fas fa-minus"></i></button>
+                    <button class="security-chatbot-close"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+    
+            <!-- Chat messages -->
+            <div class="security-chatbot-messages">
+                <!-- Initial message will be added here by JavaScript -->
+            </div>
+    
+            <!-- Typing indicator -->
+            <div class="security-chatbot-typing">
+                <div class="security-chatbot-typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+    
+            <!-- Chat input -->
+            <div class="security-chatbot-input">
+                <form id="security-chatbot-form">
+                    <div class="input-group">
+                        <button type="button" class="btn btn-outline-secondary security-chatbot-quick-trigger">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                        <input type="text" class="form-control security-chatbot-message-input" 
+                               placeholder="Type your message..." autocomplete="off">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Quick options menu -->
+                <div class="security-chatbot-quick-options">
+                    <button data-option="pentest"><i class="fas fa-shield-alt"></i> Pentest Request</button>
+                    <button data-option="question"><i class="fas fa-question-circle"></i> Ask Question</button>
+                    <button data-option="quote"><i class="fas fa-dollar-sign"></i> Get Quote</button>
+                    <button data-option="status"><i class="fas fa-sync-alt"></i> Check Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add this CSS -->
+    <style>
+    /* Chatbot Container */
+    .security-chatbot-wrapper {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    /* Toggle Button */
+    .security-chatbot-btn {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .security-chatbot-btn:hover {
+        transform: scale(1.1);
+    }
+    
+    .security-chatbot-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+    
+    /* Chat Container */
+    .security-chatbot-container {
+        width: 380px;
+        max-width: calc(100vw - 40px);
+        height: 500px;
+        max-height: 80vh;
+        background-color: #1a1a1a;
+        border: 1px solid #dc3545;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 80px;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+    
+    .security-chatbot-container.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    /* Chat Header */
+    .security-chatbot-header {
+        padding: 12px 16px;
+        background-color: #000;
+        border-bottom: 1px solid #333;
+        border-radius: 12px 12px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .security-chatbot-logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin-right: 10px;
+        object-fit: contain;
+    }
+    
+    .security-chatbot-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 2px;
+        color: white;
+    }
+    
+    .security-chatbot-subtitle {
+        font-size: 11px;
+        color: #aaa;
+    }
+    
+    .security-chatbot-actions button {
+        background: none;
+        border: none;
+        color: #aaa;
+        font-size: 14px;
+        margin-left: 10px;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    
+    .security-chatbot-actions button:hover {
+        color: white;
+    }
+    
+    /* Messages Area */
+    .security-chatbot-messages {
+        flex: 1;
+        padding: 16px;
+        overflow-y: auto;
+        background-color: #111;
+    }
+    
+    .security-chatbot-message {
+        margin-bottom: 16px;
+        animation: fadeIn 0.3s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .security-chatbot-message-bot {
+        display: flex;
+    }
+    
+    .security-chatbot-message-user {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .security-chatbot-message-content {
+        max-width: 75%;
+        padding: 10px 14px;
+        border-radius: 18px;
+        position: relative;
+        word-wrap: break-word;
+    }
+    
+    .security-chatbot-message-bot .security-chatbot-message-content {
+        background-color: #dc3545;
+        color: white;
+        border-radius: 0 18px 18px 18px;
+        margin-left: 10px;
+    }
+    
+    .security-chatbot-message-user .security-chatbot-message-content {
+        background-color: #333;
+        color: white;
+        border-radius: 18px 0 18px 18px;
+    }
+    
+    .security-chatbot-message-time {
+        font-size: 11px;
+        color: #aaa;
+        margin-top: 4px;
+        display: block;
+    }
+    
+    .security-chatbot-message-bot .security-chatbot-message-time {
+        text-align: left;
+        margin-left: 10px;
+    }
+    
+    .security-chatbot-message-user .security-chatbot-message-time {
+        text-align: right;
+    }
+    
+    /* Typing Indicator */
+    .security-chatbot-typing {
+        padding: 0 16px 10px 16px;
+        display: none;
+    }
+    
+    .security-chatbot-typing-dots {
+        display: flex;
+        align-items: center;
+        padding: 10px 14px;
+        background-color: #222;
+        border-radius: 18px;
+        width: fit-content;
+    }
+    
+    .security-chatbot-typing-dots span {
+        width: 8px;
+        height: 8px;
+        background-color: #aaa;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 2px;
+        animation: typingAnimation 1.4s infinite ease-in-out;
+    }
+    
+    .security-chatbot-typing-dots span:nth-child(1) {
+        animation-delay: 0s;
+    }
+    
+    .security-chatbot-typing-dots span:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .security-chatbot-typing-dots span:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+    
+    @keyframes typingAnimation {
+        0%, 100% { transform: translateY(0); opacity: 0.6; }
+        50% { transform: translateY(-3px); opacity: 1; }
+    }
+    
+    /* Chat Input */
+    .security-chatbot-input {
+        padding: 12px;
+        background-color: #000;
+        border-top: 1px solid #333;
+        border-radius: 0 0 12px 12px;
+        position: relative;
+    }
+    
+    .security-chatbot-input .input-group {
+        position: relative;
+    }
+    
+    .security-chatbot-message-input {
+        background-color: #222;
+        border: 1px solid #333;
+        color: white;
+        border-radius: 0 20px 20px 0 !important;
+    }
+    
+    .security-chatbot-message-input:focus {
+        background-color: #222;
+        color: white;
+        border-color: #555;
+        box-shadow: none;
+    }
+    
+    .security-chatbot-input .btn-outline-secondary {
+        border-radius: 20px 0 0 20px !important;
+        border-right: none;
+    }
+    
+    /* Quick Options */
+    .security-chatbot-quick-options {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #222;
+        border: 1px solid #333;
+        border-radius: 12px 12px 0 0;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        display: none;
+    }
+    
+    .security-chatbot-quick-options.active {
+        display: grid;
+    }
+    
+    .security-chatbot-quick-options button {
+        background-color: #333;
+        border: none;
+        color: white;
+        padding: 8px;
+        border-radius: 6px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+    
+    .security-chatbot-quick-options button i {
+        margin-right: 5px;
+        font-size: 10px;
+    }
+    
+    .security-chatbot-quick-options button:hover {
+        background-color: #444;
+    }
+    
+    /* Quick Replies */
+    .security-chatbot-quick-replies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+    }
+    
+    .security-chatbot-quick-reply {
+        background-color: rgba(220, 53, 69, 0.2);
+        border: 1px solid #dc3545;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .security-chatbot-quick-reply:hover {
+        background-color: rgba(220, 53, 69, 0.3);
+    }
+    
+    /* Form Fields */
+    .security-chatbot-form-field {
+        margin-top: 10px;
+    }
+    
+    .security-chatbot-form-field label {
+        display: block;
+        color: white;
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+    
+    .security-chatbot-form-field input,
+    .security-chatbot-form-field select,
+    .security-chatbot-form-field textarea {
+        width: 100%;
+        background-color: #222;
+        border: 1px solid #333;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+    
+    .security-chatbot-form-field textarea {
+        min-height: 80px;
+        resize: vertical;
+    }
+    
+    .security-chatbot-form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 576px) {
+        .security-chatbot-wrapper {
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        .security-chatbot-container {
+            max-width: calc(100vw - 20px);
+        }
+        
+        .security-chatbot-message-content {
+            max-width: 85%;
+        }
+    }
+    
+    /* Scrollbar */
+    .security-chatbot-messages::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .security-chatbot-messages::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+    }
+    
+    .security-chatbot-messages::-webkit-scrollbar-thumb {
+        background-color: rgba(220, 53, 69, 0.5);
+        border-radius: 3px;
+    }
+    
+    .security-chatbot-messages::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(220, 53, 69, 0.8);
+    }
+    </style>
+    
+    <!-- Add this JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // DOM Elements
+        const chatbot = {
+            container: document.getElementById('security-chatbot-container'),
+            toggleBtn: document.getElementById('security-chatbot-toggle'),
+            closeBtn: document.querySelector('.security-chatbot-close'),
+            minimizeBtn: document.querySelector('.security-chatbot-minimize'),
+            messagesContainer: document.querySelector('.security-chatbot-messages'),
+            form: document.getElementById('security-chatbot-form'),
+            input: document.querySelector('.security-chatbot-message-input'),
+            typingIndicator: document.querySelector('.security-chatbot-typing'),
+            quickOptions: document.querySelector('.security-chatbot-quick-options'),
+            quickTrigger: document.querySelector('.security-chatbot-quick-trigger'),
+            badge: document.querySelector('.security-chatbot-badge')
+        };
+    
+        // State
+        let state = {
+            isOpen: false,
+            unreadMessages: 0,
+            currentFlow: null,
+            collectedData: {},
+            typingTimeout: null
+        };
+    
+        // Conversation flows
+        const flows = {
+            start: {
+                message: "Welcome to SARSolutionz Security Bot! How can I assist you today?",
+                quickReplies: [
+                    { text: "Request Pentest", action: "startFlow", flow: "pentest" },
+                    { text: "Ask a Question", action: "startFlow", flow: "question" },
+                    { text: "Get a Quote", action: "startFlow", flow: "quote" },
+                    { text: "Check Status", action: "startFlow", flow: "status" }
+                ]
+            },
+            pentest: {
+                greeting: "Let's gather details for your penetration testing request:",
+                steps: [
+                    {
+                        question: "What's the target URL, domain or IP address?",
+                        field: "target",
+                        type: "text",
+                        validation: value => /^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))$/.test(value),
+                        error: "Please enter a valid URL, domain, or IP address"
+                    },
+                    {
+                        question: "What should be included in the scope?",
+                        field: "scope",
+                        type: "textarea",
+                        placeholder: "e.g., Web application, API endpoints, mobile app"
+                    },
+                    {
+                        question: "What's the urgency level?",
+                        field: "urgency",
+                        type: "select",
+                        options: [
+                            { value: "low", label: "Low (1-2 weeks)" },
+                            { value: "medium", label: "Medium (3-5 days)" },
+                            { value: "high", label: "High (24-48 hours)" }
+                        ]
+                    },
+                    {
+                        question: "What's your email address for our report?",
+                        field: "email",
+                        type: "email",
+                        validation: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+                        error: "Please enter a valid email address"
+                    }
+                ],
+                completion: {
+                    message: "✅ Thank you! Your pentest request has been submitted. We'll contact you within 24 hours.",
+                    actions: [
+                        { text: "New Request", action: "reset" },
+                        { text: "Main Menu", action: "start" }
+                    ]
+                }
+            },
+            question: {
+                greeting: "What security question would you like to ask?",
+                steps: [
+                    {
+                        question: "Please type your question:",
+                        field: "question",
+                        type: "textarea",
+                        placeholder: "e.g., How can we secure our API endpoints?"
+                    },
+                    {
+                        question: "Your email for our response:",
+                        field: "email",
+                        type: "email",
+                        validation: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+                        error: "Please enter a valid email address"
+                    }
+                ],
+                completion: {
+                    message: "📩 Thank you for your question! Our security experts will respond via email within 24 hours.",
+                    actions: [
+                        { text: "Ask Another", action: "reset" },
+                        { text: "Main Menu", action: "start" }
+                    ]
+                }
+            },
+            status: {
+                greeting: "To check your request status, please provide:",
+                steps: [
+                    {
+                        question: "Your request reference number:",
+                        field: "reference",
+                        type: "text",
+                        placeholder: "e.g., SAR-2023-1234"
+                    },
+                    {
+                        question: "Your registered email:",
+                        field: "email",
+                        type: "email",
+                        validation: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+                        error: "Please enter a valid email address"
+                    }
+                ],
+                completion: {
+                    message: "🔍 Checking our system for your request... (This would connect to your ticketing system in production)",
+                    actions: [
+                        { text: "Check Another", action: "reset" },
+                        { text: "Main Menu", action: "start" }
+                    ]
+                }
+            }
+        };
+    
+        // Utility functions
+        const utils = {
+            showTyping: (duration = 1500) => {
+                chatbot.typingIndicator.style.display = 'block';
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        chatbot.typingIndicator.style.display = 'none';
+                        resolve();
+                    }, duration);
+                });
+            },
+            scrollToBottom: () => {
+                chatbot.messagesContainer.scrollTop = chatbot.messagesContainer.scrollHeight;
+            },
+            formatTime: (date = new Date()) => {
+                return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            },
+            validateInput: (value, validation) => {
+                return typeof validation === 'function' ? validation(value) : true;
+            }
+        };
+    
+        // UI functions
+        const ui = {
+            addMessage: (text, isUser = false, options = null) => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `security-chatbot-message security-chatbot-message-${isUser ? 'user' : 'bot'}`;
+                
+                const timeString = utils.formatTime();
+                
+                messageDiv.innerHTML = `
+                    <div class="security-chatbot-message-content">
+                        ${text}
+                        <small class="security-chatbot-message-time">${timeString}</small>
+                    </div>
+                `;
+                
+                chatbot.messagesContainer.appendChild(messageDiv);
+                utils.scrollToBottom();
+                
+                if (options && options.quickReplies) {
+                    ui.addQuickReplies(options.quickReplies);
+                }
+                
+                // Update unread count if chat is closed
+                if (!state.isOpen && !isUser) {
+                    state.unreadMessages++;
+                    ui.updateUnreadCount();
+                }
+            },
+            addQuickReplies: (replies) => {
+                const container = document.createElement('div');
+                container.className = 'security-chatbot-quick-replies';
+                
+                replies.forEach(reply => {
+                    const btn = document.createElement('div');
+                    btn.className = 'security-chatbot-quick-reply';
+                    btn.textContent = reply.text;
+                    btn.addEventListener('click', () => {
+                        if (reply.action === 'startFlow') {
+                            bot.startFlow(reply.flow);
+                        } else if (reply.action === 'reset') {
+                            bot.resetConversation();
+                        } else if (reply.action === 'start') {
+                            bot.startConversation();
+                        }
+                        container.remove();
+                    });
+                    container.appendChild(btn);
+                });
+                
+                const lastMessage = chatbot.messagesContainer.lastElementChild;
+                lastMessage.querySelector('.security-chatbot-message-content').appendChild(container);
+            },
+            showInputField: async (step) => {
+                await utils.showTyping();
+                
+                const fieldDiv = document.createElement('div');
+                fieldDiv.className = 'security-chatbot-form-field';
+                
+                let fieldHTML = `
+                    <label>${step.question}</label>
+                `;
+                
+                if (step.type === 'select') {
+                    fieldHTML += `
+                        <select class="form-control">
+                            ${step.options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('')}
+                        </select>
+                    `;
+                } else if (step.type === 'textarea') {
+                    fieldHTML += `
+                        <textarea class="form-control" placeholder="${step.placeholder || ''}" rows="3"></textarea>
+                    `;
+                } else {
+                    fieldHTML += `
+                        <input type="${step.type}" class="form-control" placeholder="${step.placeholder || ''}">
+                    `;
+                }
+                
+                if (step.error) {
+                    fieldHTML += `
+                        <div class="invalid-feedback" style="color: #dc3545; font-size: 12px; display: none;">
+                            ${step.error}
+                        </div>
+                    `;
+                }
+                
+                fieldHTML += `
+                    <div class="security-chatbot-form-actions">
+                        <button type="button" class="btn btn-sm btn-outline-secondary cancel-btn">Cancel</button>
+                        <button type="button" class="btn btn-sm btn-danger submit-btn">Submit</button>
+                    </div>
+                `;
+                
+                fieldDiv.innerHTML = fieldHTML;
+                
+                const cancelBtn = fieldDiv.querySelector('.cancel-btn');
+                const submitBtn = fieldDiv.querySelector('.submit-btn');
+                const inputField = fieldDiv.querySelector('input, textarea, select');
+                const feedback = fieldDiv.querySelector('.invalid-feedback');
+                
+                cancelBtn.addEventListener('click', () => {
+                    bot.cancelCurrentFlow();
+                    fieldDiv.remove();
+                });
+                
+                submitBtn.addEventListener('click', () => {
+                    const value = inputField.value.trim();
+                    
+                    if (step.required !== false && !value) {
+                        if (feedback) {
+                            feedback.style.display = 'block';
+                            inputField.style.borderColor = '#dc3545';
+                        }
+                        return;
+                    }
+                    
+                    if (step.validation && !utils.validateInput(value, step.validation)) {
+                        if (feedback) {
+                            feedback.style.display = 'block';
+                            inputField.style.borderColor = '#dc3545';
+                        }
+                        return;
+                    }
+                    
+                    state.collectedData[step.field] = value;
+                    ui.addMessage(value, true);
+                    fieldDiv.remove();
+                    bot.proceedToNextStep();
+                });
+                
+                if (inputField.addEventListener) {
+                    inputField.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter' && step.type !== 'textarea') {
+                            submitBtn.click();
+                        }
+                    });
+                }
+                
+                ui.addMessage(step.question, false);
+                chatbot.messagesContainer.appendChild(fieldDiv);
+                utils.scrollToBottom();
+                inputField.focus();
+            },
+            updateUnreadCount: () => {
+                if (state.unreadMessages > 0) {
+                    chatbot.badge.textContent = state.unreadMessages;
+                    chatbot.badge.style.display = 'flex';
+                } else {
+                    chatbot.badge.style.display = 'none';
+                }
+            },
+            toggleQuickOptions: () => {
+                chatbot.quickOptions.classList.toggle('active');
+            }
+        };
+    
+        // Bot functions
+        const bot = {
+            startConversation: () => {
+                state.currentFlow = null;
+                state.collectedData = {};
+                ui.addMessage(flows.start.message, false, {
+                    quickReplies: flows.start.quickReplies
+                });
+            },
+            startFlow: (flowName) => {
+                if (!flows[flowName]) return;
+                
+                state.currentFlow = {
+                    name: flowName,
+                    currentStep: 0
+                };
+                
+                ui.addMessage(flows[flowName].greeting, false);
+                bot.proceedToNextStep();
+            },
+            proceedToNextStep: async () => {
+                const flow = flows[state.currentFlow.name];
+                
+                if (state.currentFlow.currentStep < flow.steps.length) {
+                    const step = flow.steps[state.currentFlow.currentStep];
+                    state.currentFlow.currentStep++;
+                    await ui.showInputField(step);
+                } else {
+                    await bot.completeCurrentFlow();
+                }
+            },
+            completeCurrentFlow: async () => {
+                const flow = flows[state.currentFlow.name];
+                
+                // Show sending message
+                const sendingMsg = ui.addMessage("Sending your information securely...", false);
+                
+                try {
+                    // Prepare form data
+                    const formData = new FormData();
+                    
+                    // Add collected data
+                    for (const key in state.collectedData) {
+                        formData.append(key, state.collectedData[key]);
+                    }
+                    
+                    // Add metadata
+                    formData.append('_subject', `Chatbot ${state.currentFlow.name} request`);
+                    formData.append('flow_type', state.currentFlow.name);
+                    formData.append('_template', 'table');
+                    formData.append('_captcha', 'false');
+                    formData.append('timestamp', new Date().toISOString());
+                    
+                    // Send data to FormSubmit
+                    const response = await fetch('https://formsubmit.co/ajax/3a707128c82fdfe9add4b7fa321b479e', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    
+                    const result = await response.json();
+                    console.log('Form submitted successfully:', result);
+                    
+                    // Update the sending message
+                    sendingMsg.querySelector('.security-chatbot-message-content').innerHTML = `
+                        <i class="fas fa-check-circle text-success"></i> Information sent successfully!
+                        <small class="security-chatbot-message-time">${utils.formatTime()}</small>
+                    `;
+                    
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    
+                    // Update the sending message with error
+                    sendingMsg.querySelector('.security-chatbot-message-content').innerHTML = `
+                        <i class="fas fa-exclamation-circle text-warning"></i> Failed to send. Please try again later.
+                        <small class="security-chatbot-message-time">${utils.formatTime()}</small>
+                    `;
+                }
+                
+                // Show completion message
+                ui.addMessage(flow.completion.message, false, {
+                    quickReplies: flow.completion.actions
+                });
+                
+                state.currentFlow = null;
+                state.collectedData = {};
+            },
+            cancelCurrentFlow: () => {
+                ui.addMessage("Request cancelled. What would you like to do next?", false, {
+                    quickReplies: flows.start.quickReplies
+                });
+                state.currentFlow = null;
+                state.collectedData = {};
+            },
+            resetConversation: () => {
+                bot.startConversation();
+            }
+        };
+    
+        // Event listeners
+        chatbot.toggleBtn.addEventListener('click', () => {
+            state.isOpen = !state.isOpen;
+            
+            if (state.isOpen) {
+                chatbot.container.classList.add('active');
+                state.unreadMessages = 0;
+                ui.updateUnreadCount();
+            } else {
+                chatbot.container.classList.remove('active');
+            }
+        });
+    
+        chatbot.closeBtn.addEventListener('click', () => {
+            state.isOpen = false;
+            chatbot.container.classList.remove('active');
+        });
+    
+        chatbot.minimizeBtn.addEventListener('click', () => {
+            // In a full implementation, you'd minimize the chat instead of closing
+            state.isOpen = false;
+            chatbot.container.classList.remove('active');
+        });
+    
+        chatbot.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = chatbot.input.value.trim();
+            
+            if (message) {
+                ui.addMessage(message, true);
+                chatbot.input.value = '';
+                
+                if (!state.currentFlow) {
+                    ui.addMessage("For specific assistance, please select one of the options above.", false, {
+                        quickReplies: flows.start.quickReplies
+                    });
+                }
+            }
+        });
+    
+        chatbot.quickTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            ui.toggleQuickOptions();
+        });
+    
+        document.addEventListener('click', (e) => {
+            if (!chatbot.quickOptions.contains(e.target) && 
+                !chatbot.quickTrigger.contains(e.target)) {
+                chatbot.quickOptions.classList.remove('active');
+            }
+        });
+    
+        // Quick options buttons
+        document.querySelectorAll('.security-chatbot-quick-options button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                bot.startFlow(btn.dataset.option);
+                chatbot.quickOptions.classList.remove('active');
+            });
+        });
+    
+        // Initialize
+        bot.startConversation();
+    });
+    </script>
 </body>
 
 <!-- हरे कृष्णा हरे कृष्णा कृष्णा कृष्णा हरे हरे,हरे राम हरे राम राम राम हरे हरे. -->
