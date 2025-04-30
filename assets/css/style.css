@@ -12961,7 +12961,7 @@ div#featured-project-carousel {
   box-shadow: var(--shadow-1); }
   @media only screen and (max-width: 575px) {
     .backto-top > div {
-      bottom: 30px; } }
+      bottom: 100px; } }
   .backto-top > div:hover::after {
     opacity: 1; }
   .backto-top > div::after {
