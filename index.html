@@ -2495,6 +2495,87 @@
         bot.startConversation();
     });
     </script>
+    <!-- Hacker Flicker Loading -->
+<style>
+  #loading-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  #loading {
+    font-family: monospace;
+    font-size: 60px;
+    color: #0f0;
+    text-shadow: 0 0 10px #0f0;
+    letter-spacing: 6px;
+  }
+
+  .glow {
+    color: #0f0;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  }
+
+  body.loaded #loading-screen {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+  }
+</style>
+
+<div id="loading-screen">
+  <div id="loading">ACCESS GRANTED</div>
+</div>
+
+<script>
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*".split("");
+  const el = document.getElementById("loading");
+  const originalText = el.innerText;
+  el.innerHTML = "";
+
+  const spans = [];
+  for (let i = 0; i < originalText.length; i++) {
+    const span = document.createElement("span");
+    span.textContent = originalText[i] === " " ? " " : chars[Math.floor(Math.random() * chars.length)];
+    el.appendChild(span);
+    spans.push(span);
+  }
+
+  let frame = 0;
+  const totalFrames = 30;
+  let lockIndex = 0;
+
+  const interval = setInterval(() => {
+    for (let i = lockIndex; i < spans.length; i++) {
+      if (originalText[i] !== " ") {
+        spans[i].textContent = chars[Math.floor(Math.random() * chars.length)];
+      }
+    }
+
+    frame++;
+    if (frame % 4 === 0 && lockIndex < spans.length) {
+      if (originalText[lockIndex] !== " ") {
+        spans[lockIndex].textContent = originalText[lockIndex];
+        spans[lockIndex].classList.add("glow");
+      }
+      lockIndex++;
+    }
+
+    if (lockIndex >= spans.length) {
+      clearInterval(interval);
+      setTimeout(() => {
+        document.body.classList.add("loaded");
+        document.getElementById("loading-screen").style.display = "none";
+      }, 1000);
+    }
+  }, 50);
+</script>
+
 </body>
 
 <!-- हरे कृष्णा हरे कृष्णा कृष्णा कृष्णा हरे हरे,हरे राम हरे राम राम राम हरे हरे. -->
